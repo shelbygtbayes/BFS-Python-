@@ -76,7 +76,11 @@ def minDistance(window):
             path[n.row][n.col+1] = [n.row,n.col]
             #print(f"Before : {temp_row} {temp_col} {path[temp_row][temp_col]}")
             vis[n.row][n.col+1] = 1
-
+    for x in path:
+        for y in x:
+            if(y[0]!=None and y[1]!=None):
+                print(y,end=" ")
+        print("")
 
 # Final Coloring
     if(ans==-1):
@@ -133,8 +137,7 @@ def final():
     while(temp_row!=None and  temp_col!=None and (path[temp_row][temp_col][0]!=source_row or path[temp_row][temp_col][1] != source_col)):
         board[temp_row][temp_col] = "blue"
         print(f"Before : {temp_row} {temp_col} {path[temp_row][temp_col]}")
-        temp_row = path[temp_row][temp_col][0]
-        temp_col = path[temp_row][temp_col][1]
+        temp_row , temp_col = path[temp_row][temp_col]
         print(f"After : {temp_row} {temp_col} {path[temp_row][temp_col]} {cnt}")
         cnt+=1
     board[temp_row][temp_col] = "blue"
